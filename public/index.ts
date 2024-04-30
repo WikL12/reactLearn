@@ -58,7 +58,7 @@ class article {
     content: string
     aaa?: string
     bbb: number = 100
-    // 私有变脸，崽class之外不可被读取，不可被修改
+    // 私有变脸，在class之外不可被读取，不可被修改
     private time?: string
     protected time2?: string
     static time3: string
