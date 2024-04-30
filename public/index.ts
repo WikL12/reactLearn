@@ -49,6 +49,8 @@ function fn(): void {
 // 看上面那条注释
 myfn<number>(1, 2);
 
+
+
 // TS中的类
 class article {
     // 公有变量 默认都为public
