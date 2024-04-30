@@ -9,12 +9,21 @@ const MemoList = memo(<List></List>); // 缓存组件，可以跳过渲染
 import App from '../App';
 import { Suspense, lazy } from 'react';
 const Todolist = lazy(()=>import('../components/todoList')) // 路由懒加载
+
+
+
+
+
+
+import Todo from '../components/pratices/todolist';
+
+
 const router = createBrowserRouter([
 
   {
     path: '/',
     // element: <HighLevelRoute><NotFound></NotFound></HighLevelRoute>,
-    element: <App></App>,
+    element: <Todo></Todo>,
     children: [
       {
         index: true,  //默认二级路由

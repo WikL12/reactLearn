@@ -29,7 +29,7 @@ function App() {
     <>
      
       <h1 >Vite + React</h1>
-      <Pricate/>
+      {/* <Pricate/> */}
       {/* <Todolist /> */}
       {/* <ReduxTest/> */}
       {/* <div className="card">
