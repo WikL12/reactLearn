@@ -12,3 +12,4 @@ const todoItem = (prop:TodoItemProp) => {
 }
 
 export default todoItem;
+

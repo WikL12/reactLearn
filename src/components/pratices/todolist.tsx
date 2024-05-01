@@ -2,6 +2,9 @@ import  "./index.less";
 import { Input, Button } from "antd";
 import { useState, useRef, useEffect, useMemo } from "react";
 import TodoItem from "./todoItem";
+import {addTodoList} from "../../store/modules/todolist";
+
+import { useDispatch , useSelector} from "react-redux";
 const TodoList = () => {
     const [todoValue, setTodoValue] = useState<string>('');
     const [todoList, setTodoList] = useState<string[]>([]);
@@ -13,6 +16,7 @@ const TodoList = () => {
     }
     const addTodo = () => {
         setTodoList([...todoList, todoValue]);
+        dispatch(addTodoList([...todoList, todoValue]));
         setTodoValue('');
         inputRef.current.focus();
     }
@@ -21,6 +25,8 @@ const TodoList = () => {
         const newList = [...todoList];
         newList.splice(index, 1);
         setTodoList(newList);
+        dispatch(addTodoList(newList));
+
     }
 
     useEffect(() => {
@@ -36,6 +42,15 @@ const TodoList = () => {
         return todoValue
     }, [todoValue])
 
+
+
+    const todoList2 = useSelector((state: any) => {
+        console.log(state);
+        return state.todoList.todoList;
+    })
+    const dispatch = useDispatch();
+
+
     return (
         <>
             TodoList :    {a}
@@ -44,7 +59,7 @@ const TodoList = () => {
                 <Button type="primary" onClick={addTodo}>添加</Button>
             </div>
 
-            {todoList.map((item, index) => {
+            {todoList2.map((item, index) => {
                 // return <div className="todoItem" key={index}>{item} <Button danger onClick={()=>deleteItem(index)}>删除</Button></div>
                 return <TodoItem  index={index} item={item} deleteItem={deleteItem}> </TodoItem>
             })}

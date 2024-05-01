@@ -4,6 +4,7 @@ import channelReducer from './modules/channelStore';
 import foodReducer from "./modules/foodStore";
 import pricate from "./modules/pricate";
 import tokenStore from "./modules/token";
+import todoList from "./modules/todolist";
 const store = configureStore({
     reducer:{
         counter:counterReducer,
@@ -11,6 +12,7 @@ const store = configureStore({
         foodObject:foodReducer,
         pricate:pricate,
         tokenStore:tokenStore,
+        todoList,
     }
 })
 
