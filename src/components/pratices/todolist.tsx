@@ -3,9 +3,6 @@ import { Input, Button } from "antd";
 import { useState, useRef, useEffect, useMemo } from "react";
 import TodoItem from "./todoItem";
 const TodoList = () => {
-    const danger = {
-        border:'1px solid red'
-    }
     const [todoValue, setTodoValue] = useState<string>('');
     const [todoList, setTodoList] = useState<string[]>([]);
     const inputRef = useRef<any>(null);
