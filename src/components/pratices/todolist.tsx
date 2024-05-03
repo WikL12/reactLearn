@@ -1,6 +1,6 @@
 import  "./index.less";
 import { Input, Button } from "antd";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo , useCallback} from "react";
 import TodoItem from "./todoItem";
 import {addTodoList} from "../../store/modules/todolist";
 
@@ -50,7 +50,13 @@ const TodoList = () => {
     })
     const dispatch = useDispatch();
 
+    const useCallbackFunc = useCallback((index: number) => {
+        const newList = [...todoList];
+        newList.splice(index, 1);
+        setTodoList(newList);
+        dispatch(addTodoList(newList));
 
+    },[])
     return (
         <>
             TodoList :    {a}
@@ -61,7 +67,7 @@ const TodoList = () => {
 
             {todoList2.map((item, index) => {
                 // return <div className="todoItem" key={index}>{item} <Button danger onClick={()=>deleteItem(index)}>删除</Button></div>
-                return <TodoItem  index={index} item={item} deleteItem={deleteItem}> </TodoItem>
+                return <TodoItem  index={index} item={item} deleteItem={useCallbackFunc}> </TodoItem>
             })}
         </>
     )

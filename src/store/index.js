@@ -5,6 +5,7 @@ import foodReducer from "./modules/foodStore";
 import pricate from "./modules/pricate";
 import tokenStore from "./modules/token";
 import todoList from "./modules/todolist";
+import foodList from "./modules/foodList";
 const store = configureStore({
     reducer:{
         counter:counterReducer,
@@ -13,6 +14,7 @@ const store = configureStore({
         pricate:pricate,
         tokenStore:tokenStore,
         todoList,
+        foodList
     }
 })
 
