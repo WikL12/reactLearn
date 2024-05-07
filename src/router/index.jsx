@@ -17,13 +17,13 @@ const Todolist = lazy(()=>import('../components/todoList')) // 路由懒加载
 
 import Todo from '../components/pratices/todolist';
 import FoodList from '../components/pratices/foodList';
-
+import Appp from '../components/pratices/allHooks'
 const router = createBrowserRouter([
 
   {
     path: '/',
     // element: <HighLevelRoute><NotFound></NotFound></HighLevelRoute>,
-    element: <Todo></Todo>,
+    element: <Appp></Appp>,
     children: [
       {
         index: true,  //默认二级路由

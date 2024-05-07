@@ -32,7 +32,6 @@ const TodoList = () => {
     useEffect(() => {
         console.log('useEffect');
     }, [])
-
     useEffect(() => {
         console.log('todoValue has change!');
     }, [todoValue])
