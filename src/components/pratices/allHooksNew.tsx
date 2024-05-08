@@ -118,7 +118,7 @@ function reducerFunction(state, action) {
 }
 const LilleChild = memo(function LilleChild({onchageContextValue}) {
     const contextValueFromChild = useContext(childContext);
-    const [text, textdispatch] = useReducer(reducerFunction, 'little Child');
+    const [text, textdispatch] = useReducer(reducerFunction, 'little Child',()=>'asdasdasd');
     const LilleChildRef = useRef(null);
     useEffect(() => {
     LilleChildRef.current.focus()

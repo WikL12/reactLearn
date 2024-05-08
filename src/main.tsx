@@ -14,11 +14,11 @@ import { RouterProvider } from 'react-router-dom';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
     <App />
     <RouterProvider router={router}>
     </RouterProvider>
     </Provider>
-  // </React.StrictMode>,
+   </React.StrictMode>,
 )
