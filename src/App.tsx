@@ -15,6 +15,9 @@ function App() {
   const addCount = () => {
     setCount(count + 1)
   }
+  function saveCount() {
+    console.log(count)
+  }
   useEffect(() => {
     console.log('I am load!')
   }, undefined);
@@ -35,6 +38,9 @@ function App() {
       {/* <div className="card">
         <Button onClick={addCount} type="primary">
           count is {count}
+        </Button>
+        <Button onClick={saveCount} type="default">
+          保存
         </Button>
         </div> */}
       {/* <List hello={'adasd'} count={count}/> */}

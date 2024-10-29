@@ -50,6 +50,9 @@ export default function App() {
     const [allFinshed, setAllFinshed] = useState<number>(0);
     useEffect(() => {
         setAllFinshed(finshedlist.length)
+        return ()=>{
+            console.log('我被销毁了！')
+        }
     }, [finshedlist])
     return <>
         <div className="mt-20 p-0 h-20  flex flex-col justify-center align-middle">
