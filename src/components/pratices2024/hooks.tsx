@@ -6,7 +6,7 @@ const style = {
     // height: '40px',
     marginBottom: '10px'
 }
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Button } from 'antd';
 import { Input } from "antd";
 import { Segmented } from 'antd';
@@ -14,6 +14,14 @@ function App() {
     const [a, setA] = useState('');
     const [target, setTarget] = useState([]);
     const [segValue,setSegValue] = useState('未完成');
+    useEffect(()=>{
+        console.log('im useEffect');
+        return ()=>{
+            console.log('im useEffect return')
+        }
+    },[]);
+
+    const targetLength = useMemo(()=>target.length,[target]);
 
     function valueChange(e) {
         // console.log(e.target.value);
@@ -44,7 +52,7 @@ function App() {
    
     return (
         <>
-        待办事项
+        待办事项 {targetLength} 条
           <div style={style}>
           <Input placeholder="Basic usage" value={a} onChange={valueChange} />
           <Button type="primary"  style={{marginLeft:'10px'}} onClick={addToDoList}>新增</Button>
