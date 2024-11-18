@@ -17,7 +17,7 @@ const Todolist = lazy(()=>import('../components/todoList')) // 路由懒加载
 
 import Todo from '../components/pratices/todolist';
 import FoodList from '../components/pratices/foodList';
-import Appp from '../components/pratices2024/reducer'
+import Appp from '../components/pratices2024/hooks1113'
 const router = createBrowserRouter([
 
   {
