@@ -1,5 +1,9 @@
 import { forwardRef, memo, startTransition, useEffect, useMemo, useReducer, useRef, useState, useTransition } from "react"
 import { Button } from "antd"
+import { useDispatch , useSelector} from "react-redux";
+import{  addCount,decreamentCount ,setCountBySync}  from '../../store/modules/20241119Redux'
+import{  addArray,getReduxStoreNew }  from '../../store/modules/2024111902Redux'
+
 export default function App(){
     const [state,setState] = useState(0)
     const [isLoading,startTransition] = useTransition();
@@ -37,6 +41,7 @@ export default function App(){
         <AppSon a= {1}></AppSon>
         <AppSon2 b={AppSon2State}></AppSon2>
         <MyReducer></MyReducer>
+        <TestStoreData></TestStoreData>
     </>
 }
 
@@ -128,4 +133,26 @@ const AppSon3 = forwardRef((props,ref: React.ForwardedRef<HTMLDivElement>)=>{
         </>
         )
        
+    }
+
+
+
+    function TestStoreData(){
+        const storeCount = useSelector((state)=>state.reduxStore.count);
+        const storeArray = useSelector(getReduxStoreNew);
+        const dispathStoreAction = useDispatch();
+        return (
+            <>  
+            {/* <Button onClick={()=>{dispathStoreAction(addCount(storeCount))}}>+</Button>
+            <Button onClick={()=>{dispathStoreAction(decreamentCount(storeCount))}}>-</Button>
+            <Button onClick={()=>{dispathStoreAction(setCountBySync())}}>超级加倍</Button>
+                <div>{storeCount}</div> */}
+
+            {storeArray}
+            <Button onClick={()=>{dispathStoreAction(addArray(storeArray))}}>+</Button>
+            {/* {storeArray.map(x=>{
+                return <div key={x}>{x}</div>
+            })} */}
+            </>
+        )
     }

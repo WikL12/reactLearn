@@ -6,6 +6,9 @@ import pricate from "./modules/pricate";
 import tokenStore from "./modules/token";
 import todoList from "./modules/todolist";
 import foodList from "./modules/foodList";
+import reduxStore from "./modules/20241119Redux";
+import reduxStoreNew from "./modules/2024111902Redux";
+import redux1120 from "./modules/redux1120";
 const store = configureStore({
     reducer:{
         counter:counterReducer,
@@ -14,7 +17,10 @@ const store = configureStore({
         pricate:pricate,
         tokenStore:tokenStore,
         todoList,
-        foodList
+        foodList,
+        reduxStore,
+        reduxStoreNew,
+        redux1120
     }
 })
 
