@@ -76,12 +76,42 @@ const TextRef = forwardRef(function (props, ref) {
         <Lists value={inputValueDefrred}></Lists>
     </>)
 })
-
+    async function queryDataByFetch(url:string,method:string ='GET',params:object,headerConfig?:any){
+        let urlGet = '';
+        Object.entries(params).forEach(([key, value], index) => {
+            urlGet += `${index === 0 ? '?' : '&'}${key}=${value}`;
+        })
+        const response = await fetch(method === 'GET' ?url+urlGet :url,
+            {
+                method: method,
+                headers: headerConfig || {
+                    'Content-Type': method === 'GET' ? 'application/x-www-form-urlencoded' :"application/json",
+                },
+                body: method === 'GET' ? undefined : JSON.stringify(params),
+            });
+        return response.json()
+    }
 
     function Lists(props){
+
+        function queryData(){
+            // fetch('http://localhost:3000').then(res=>{
+            //     console.log(res);
+            //     return res.json()
+            // }).then(res=>{
+            //     console.log(res)
+            // })
+
+            queryDataByFetch('http://localhost:3000/getList','POST',{name:'123'}).then(res=>{
+                console.log(res)
+            })
+        }
+
+
         return (
             <>
                {props.value}
+               <Button onClick={queryData}>query</Button>
             </>
         )
     }
